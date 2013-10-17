@@ -1,0 +1,17 @@
+
+.abs.score0 {
+	display: none;
+}
+
+.auth.score0 {
+#	display: none;
+}
+.tag.score0 {
+  display: none;
+}
+.tag {
+  border: 1px solid rgba(0,0,225,.1) ;
+  background-color: rgba(0,0,225,.1); 
+  display: inline;
+
+
