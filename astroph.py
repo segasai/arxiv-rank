@@ -143,4 +143,4 @@ def doit():
 						authors=curent.author,tags=matches+author_matches,link=curent.link
 						,pdf=curent.link.replace('abs','pdf')))
 
-	return wrapper(BigRes.printer()	)
+	return BigRes.printer()
