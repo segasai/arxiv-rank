@@ -124,13 +124,15 @@ def doit():
 
 	for i in range(nentries):
 		curent = zz['entries'][i]
-		tokens = nltk.wordpunct_tokenize(curent.summary)
 		ngramlist = []
-		stemlowtokens = [stem.stem_word(_).lower() for _ in tokens]
-		x = 1
-		while x <= 3:
-			ngramlist = ngramlist + list(nltk.ngrams(stemlowtokens, x))
-			x += 1
+		maxNgram = 3 # maximum number of words in the phrase allowed		
+		for  curtext in [curent.title, curent.summary]:
+			tokens = nltk.wordpunct_tokenize(curtext)
+			stemlowtokens = [stem.stem_word(_).lower() for _ in tokens]
+			x = 1
+			for x in range(1, maxNgram+1):
+				ngramlist = ngramlist + list(nltk.ngrams(stemlowtokens, x))
+
 		ngrams = set(ngramlist)
 
 		matches = []
