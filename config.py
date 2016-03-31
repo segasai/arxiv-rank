@@ -1,2 +1,2 @@
 
-rssurl='http://export.arxiv.org/rss/astro-ph'
+rssurl = 'http://export.arxiv.org/rss/astro-ph'

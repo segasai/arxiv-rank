@@ -9,10 +9,11 @@ app = Flask(__name__)
 env = Environment(loader=FileSystemLoader(
 	'templates'), extensions=['jinja2.ext.autoescape'])
 
+
 @app.route("/")
 def hello():
 	return env.get_template(
 		'main.html').render(body=astroph.doit())
-    
+
 if __name__ == "__main__":
 	app.run(debug=True)
