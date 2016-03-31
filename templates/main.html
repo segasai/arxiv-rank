@@ -3,6 +3,16 @@
 <link rel="stylesheet" type="text/css" media="all" href="/static/main.css">
 <link rel="stylesheet" type="text/css" media="all" href="/static/bootstrap.css">
 <script src="static/bootstrap.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type='text/javascript'>
+function toggle(elementid1,elementid2) {
+	var node1 = document.getElementById(elementid1);
+	var node2 = document.getElementById(elementid2);
+	node2.style.display = 'inline';
+	node1.style.display='none';
+}
+</script>
+
 </head><body>
 {{ body }}
 </body></html

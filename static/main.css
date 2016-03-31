@@ -1,6 +1,9 @@
-
-.abs.score0 {
+.abs.score0.text.toggle.hidden {
 	display: none;
+}
+.abs.score0.box.toggle.hidden {
+	height:32px;
+	background:url("http://icons.iconarchive.com/icons/awicons/vista-artistic/32/add-icon.png") no-repeat;
 }
 
 .auth.score0 {
@@ -13,5 +16,18 @@
   border: 1px solid rgba(0,0,225,.1) ;
   background-color: rgba(0,0,225,.1); 
   display: inline;
+}
 
-
+#.toggle{
+#	background:url("http://icons.iconarchive.com/icons/pixelmixer/basic/48/plus-icon.png") no-repeat;
+#}
+/*
+#.toggle{
+#	display:inline-block;
+#	height:48px;
+#	width:48px;  background:url("http://icons.iconarchive.com/icons/pixelmixer/basic/48/plus-icon.png");
+#}
+#.toggle.expanded{
+#	background:url("http://cdn2.iconfinder.com/data/icons/onebit/PNG/onebit_32.png");
+#}
+*/

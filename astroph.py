@@ -52,19 +52,24 @@ class article:
 				tags= tags+'<div class="tag">%s</div>'%k
 		if len(tags)==0:
 			tags=''
+		toggle='toggle expanded'
+		onclick=""
 		if self.score==0:
 			style='score0'
+			toggle='toggle hidden'
+			onclick=str.format("""onclick="toggle('abs#{num}','absX#{num}');" """,**locals())
 		if self.score==1:
 			style='score1'
 		if self.score>=2:
 			style='score2'
-
+		
 		ret = str.format('''
 	<div id="art#{num}" class="art {style}">
 		<div id="tag#{num}" class="tag {style}">{tags}</div>
 		<div id="title#{num}" class="title {style}"><h2><a href="{link}">{title}</a></h2></div>
 		<div id="aut#{num}" class="auth {style}">{authors}</div>
-		<div id="abs#{num}" class="abs {style}">{abstract}</div>
+		<div id="abs#{num}" class="abs {style} box {toggle}" {onclick}></div>
+		<div id="absX#{num}" class="abs {style} text {toggle}">{abstract}</div>
 		<div id="pdflink#{num}" class="pdflink {style}"><a href="{pdf}">PDF<a></div>
 	</div><hr>
 			''',**locals())
@@ -111,7 +116,7 @@ def doit():
 		stemlowtokens=[stem.stem_word(_).lower() for _ in tokens]
 		x=1
 		while x<=3:
-			ngramlist=ngramlist+(nltk.ngrams(stemlowtokens,x))
+			ngramlist=ngramlist+list(nltk.ngrams(stemlowtokens,x))
 			x+=1
 		ngrams = set(ngramlist)
 
