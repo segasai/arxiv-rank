@@ -1,7 +1,14 @@
 import feedparser
 import nltk
+import sys
 from nltk.stem.porter import PorterStemmer
-import BeautifulSoup
+if int(sys.version[0])>=3:
+	from bs4 import BeautifulSoup
+	Parser = BeautifulSoup
+else:
+	import BeautifulSoup
+	Parser = BeautifulSoup.RobustHTMLParser
+
 import numpy as np
 import config
 
@@ -141,7 +148,7 @@ def doit():
 			if k in ngrams:
 				matches.append(origkeys[_i])
 
-		authorshtml = BeautifulSoup.RobustHTMLParser(curent.author)
+		authorshtml = BeautifulSoup(curent.author,'html.parser')
 		authors = [_.contents[0] for _ in authorshtml.findAll('a')]
 		# for cura in authors:
 		#	tokens = nltk.word_tokenize(cura)
