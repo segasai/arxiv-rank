@@ -9,11 +9,19 @@ else:
 	import BeautifulSoup
 	Parser = BeautifulSoup.RobustHTMLParser
 
+nltk_ver = tuple([int(_) for _ in nltk.__version__.split('.')])
+if nltk_ver>=(3,2,2):
+	stem = PorterStemmer().stem
+else:
+	stem = PorterStemmer().word_stem
+	
+
+
+	
 import numpy as np
 import config
 
 
-stem = PorterStemmer()
 
 
 def get_keys():
@@ -26,7 +34,7 @@ def get_keys():
 			continue
 		words = nltk.wordpunct_tokenize(fullstr)
 		#fullstr.split(' ')
-		key1 = tuple([stem.stem_word(_).lower() for _ in words])
+		key1 = tuple([stem(_).lower() for _ in words])
 		keys.append(key1)
 		origkeys.append(fullstr)
 	return keys, origkeys
@@ -135,7 +143,7 @@ def doit():
 		maxNgram = 3 # maximum number of words in the phrase allowed		
 		for  curtext in [curent.title, curent.summary]:
 			tokens = nltk.wordpunct_tokenize(curtext)
-			stemlowtokens = [stem.stem_word(_).lower() for _ in tokens]
+			stemlowtokens = [stem(_).lower() for _ in tokens]
 			x = 1
 			for x in range(1, maxNgram+1):
 				ngramlist = ngramlist + list(nltk.ngrams(stemlowtokens, x))
