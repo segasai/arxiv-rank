@@ -18,6 +18,11 @@ def favicon():
                                mimetype='image/vnd.microsoft.icon')
 
 
+@app.route('/robots.txt')
+def send_robots():
+    return send_from_directory('static', 'robots.txt')
+
+
 @app.route("/")
 def hello():
     return env.get_template('main.html').render(body=astroph.doit())

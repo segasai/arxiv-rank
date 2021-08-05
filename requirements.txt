@@ -1,0 +1,7 @@
+flask
+bs4
+numpy
+gunicorn
+jinja2
+nltk
+feedparser
