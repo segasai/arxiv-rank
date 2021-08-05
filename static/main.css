@@ -1,9 +1,9 @@
-.abs.score0.text.toggle.hidden {
+.abs.score0.text.mytoggle.myhidden {
 	display: none;
 }
-.abs.score0.box.toggle.hidden {
+.abs.score0.box.mytoggle.myhidden {
 	height:32px;
-	background:url("http://icons.iconarchive.com/icons/awicons/vista-artistic/32/add-icon.png") no-repeat;
+	background:url("/add-icon.png") no-repeat;
 }
 
 .auth.score0 {

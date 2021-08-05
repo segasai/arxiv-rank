@@ -5,3 +5,4 @@ gunicorn
 jinja2
 nltk
 feedparser
+bleach

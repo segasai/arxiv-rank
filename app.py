@@ -18,6 +18,13 @@ def favicon():
                                mimetype='image/vnd.microsoft.icon')
 
 
+@app.route('/add-icon.png')
+def send_icon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'add-icon.png',
+                               mimetype='image/png')
+
+
 @app.route('/robots.txt')
 def send_robots():
     return send_from_directory('static', 'robots.txt')

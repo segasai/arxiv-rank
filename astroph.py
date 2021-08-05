@@ -4,6 +4,7 @@ import sys
 import numpy as np
 import config
 from nltk.stem.porter import PorterStemmer
+import bleach
 if int(sys.version[0]) >= 3:
     from bs4 import BeautifulSoup
     Parser = BeautifulSoup
@@ -60,7 +61,7 @@ class article:
         self.pdf = pdf
 
     def printer(self, num):
-        abstract = self.abstract
+        abstract = bleach.clean(self.abstract, tags='p')
         authors = self.authors
         link = self.link
         title = self.title
@@ -72,11 +73,11 @@ class article:
                 tags = tags + '<div class="tag">%s</div>' % k
         if len(tags) == 0:
             tags = ''
-        toggle = 'toggle expanded'
+        toggle = 'mytoggle myexpanded'
         onclick = ""
         if self.score == 0:
             style = 'score0'
-            toggle = 'toggle hidden'
+            toggle = 'mytoggle myhidden'
             onclick = str.format(
                 """onclick="toggle('abs#{num}','absX#{num}');" """, **locals())
         if self.score == 1:
