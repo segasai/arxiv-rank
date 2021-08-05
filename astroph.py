@@ -128,7 +128,7 @@ def doit():
     for i in range(nentries):
         curent = zz['entries'][i]
         ngramlist = []
-        maxNgram = 3  # maximum number of words in the phrase allowed
+        maxNgram = 4  # maximum number of words in the phrase allowed
         for curtext in [curent.title, curent.summary]:
             tokens = nltk.wordpunct_tokenize(curtext)
             stemlowtokens = [stem(_).lower() for _ in tokens]
